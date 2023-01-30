@@ -12,7 +12,6 @@ function [l2n,h1n] = TP_ScanFrequencies(k_range,ni,Lmax)
     l2n = []; h1n = []; 
     for k=k_range
         [l2k,h1k] = PW_Scattering_SolNorms(k,ni,Lmax);
-        % [l2k,h1k] = RoughWave_Scattering_SolNorms(k,ni,Lmax);
         fprintf('TP_ScanFrequencies: k = %d, L2 norm = %d, h1-norm = %d\n',k,l2k,h1k);
         l2n = [l2n;l2k];
         h1n = [h1n,h1k];
@@ -23,6 +22,5 @@ function [l2n,h1n] = TP_ScanFrequencies(k_range,ni,Lmax)
     xlabel('wave number k','fontsize',14);
     ylabel('solution norms in ball B_2','fontsize',14);
     title(sprintf('{Helmholtz T.P., incident p.w., n_i = %f}',ni));
-    % title(sprintf('Helmholtz T.P., inc. rough wave, n_i = %f',ni));
     legend('L2 norm','H1 norm','location','best');
 end
